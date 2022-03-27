@@ -1,9 +1,9 @@
 from aiogram import executor
 
-from loader import dp
-import middlewares, filters, handlers
-from utils.notify_admins import on_startup_notify
-from utils.set_bot_commands import set_default_commands
+from bot.loader import dp
+import bot.middlewares, bot.filters, bot.handlers
+from bot.utils.notify_admins import on_startup_notify
+from bot.utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dispatcher):
