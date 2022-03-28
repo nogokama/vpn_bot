@@ -2,7 +2,7 @@ from aiogram import types
 
 from bot.loader import dp
 
-from wireguard.loader import vpn_recorder
+from wireguard_utils.loader import vpn_recorder
 
 
 @dp.message_handler(commands=["register"])

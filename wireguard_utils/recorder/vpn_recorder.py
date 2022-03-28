@@ -1,6 +1,6 @@
 from aiogram import types
 
-from wireguard.data.user import User, UsersList, UserRegisterQueue
+from wireguard_utils.data.user import User, UsersList, UserRegisterQueue
 
 from bot.loader import dp as dispatcher
 import bot.utils.notify_admins as notify_admins

@@ -1,6 +1,6 @@
 from aiogram import types
 
-from wireguard.loader import vpn_recorder
+from wireguard_utils.loader import vpn_recorder
 
 from bot.loader import dp
 from bot.keyboards.inline.approve_new_client import keyboard as reply_keyboard
