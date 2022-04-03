@@ -1,3 +1,6 @@
 {
-    "sqlite_db_path": "/home/artem/databases/wireguard_vpn/database.db"
+    "sqlite_db_path": "/home/artem/databases/wireguard_vpn/database.db",
+    "keys_files_path" : "/etc/wireguard/users_keys",
+    "vpn_endpoint" : "familyvpn.ml:51830",
+    "server_public_key_path": "/etc/wireguard/publickey"
 }
