@@ -101,7 +101,9 @@ class VpnRecorder:
         cnt = self.db_connector.get_all_records_count()
         user_cnt = self.db_connector.get_user_records_count(user_info.id)
 
-        config_path = config.keys_files_path + "/{}_{}.conf".format(user_info.id, user_cnt)
+        config_path = config.keys_files_path + "/{}_{}_{}.conf".format(
+            user_info.id, user_cnt, user_info.comment
+        )
 
         wc = wgconfig.WGConfig(config_path)
 
