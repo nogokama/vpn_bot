@@ -1,6 +1,6 @@
 import logging
 
-from aiogram import Dispatcher
+from aiogram import Dispatcher, types
 
 from bot.data.config import ADMINS
 
@@ -20,3 +20,7 @@ async def text_notify(dp: Dispatcher, notification_text: str):
             await dp.bot.send_message(admin, text=notification_text)
         except Exception as err:
             logging.exception(err)
+
+
+async def send_incorrect_comment(message: types.Message):
+    await message.reply('incorrect comment string')
