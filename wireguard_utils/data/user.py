@@ -7,9 +7,11 @@ class UsersList:
 
 
 class User:
-    def __init__(self, id=-1, name="default name"):
+    def __init__(self, id=-1, name="default name", key='', comment=''):
         self.id = id
         self.name = name
+        self.key = key
+        self.comment = comment
 
     @staticmethod
     def construct_user():
@@ -17,6 +19,11 @@ class User:
 
     def __hash__(self):
         return self.id
+
+    def __repr__(self):
+        return 'id: {}, name: {}, key: {}, comment: {}'.format(self.id, self.name, self.key)
+
+    __str__ = __repr__
 
 
 class UserRegisterQueue:

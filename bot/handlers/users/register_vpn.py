@@ -13,3 +13,8 @@ async def register_request_command(message: types.Message):
         text="Хорошая попытка, {}! Ваш ответ записан! "
         "Ждите подтверждения администратора".format(message.from_user.first_name)
     )
+
+
+@dp.message_handler(commands=["get_all_keys"])
+async def get_all_keys(message: types.Message):
+    await message.reply(text=vpn_recorder.get_all_records(message.from_user))
