@@ -16,7 +16,11 @@ class WgGenerator:
         result = subprocess.run(["wg", "genkey"], stdout=subprocess.PIPE)
         private_key = result.stdout
 
-        p = subprocess.Popen(["wg", "pubkey"], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+        p = subprocess.Popen(
+            ["wg", "pubkey"], stdout=subprocess.PIPE, stdin=subprocess.PIPE
+        )
         public_key = p.communicate(input=private_key)[0]
 
-        return KeyPair(str(private_key, "utf-8")[:-1], str(public_key, encoding="utf-8")[:-1])
+        return KeyPair(
+            str(private_key, "utf-8")[:-1], str(public_key, encoding="utf-8")[:-1]
+        )

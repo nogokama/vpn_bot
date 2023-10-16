@@ -7,11 +7,13 @@ class UsersList:
 
 
 class User:
-    def __init__(self, id=-1, name="default name", public_key="", private_key="", comment=""):
+    def __init__(
+        self, id=-1, name="default name", username="", outline_key="", comment=""
+    ):
         self.id = id
         self.name = name
-        self.public_key = str(public_key)
-        self.private_key = str(private_key)
+        self.username = username
+        self.outline_key = outline_key
         self.comment = comment
 
     @staticmethod
@@ -22,8 +24,8 @@ class User:
         return self.id
 
     def __repr__(self):
-        return "id: {}, name: {}, public_key: {}, private_key: {}, comment: {}".format(
-            self.id, self.name, self.public_key, self.private_key, self.comment
+        return "id: {}, name: {}, outline_key: {}, comment: {}".format(
+            self.id, self.name, self.outline_key, self.comment
         )
 
     __str__ = __repr__

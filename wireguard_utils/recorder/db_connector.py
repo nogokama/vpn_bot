@@ -67,13 +67,13 @@ class DbConnector:
     def get_first_user_from_queue(self) -> User:
         data = self.cursor.execute(
             """
-            select Queue.Id, Clients.Name, Queue.Comment 
+            select Queue.Id, Clients.Name, Queue.Comment, Clients.Username
             from Queue left join Clients on Queue.Id=Clients.Id
             order by Queue.Id, Clients.Name, Queue.Comment ASC
             """
         )
         row = list(data)[0]
-        return User(id=row[0], name=row[1], comment=row[2])
+        return User(id=row[0], name=row[1], comment=row[2], username=row[3])
 
     def remove_from_queue(self, user: User):
         self.cursor.execute(
@@ -102,9 +102,9 @@ class DbConnector:
         if user_info_count == 0:
             self.cursor.execute(
                 """
-                    insert into Clients (Id, Name) values (:id, :name)
+                    insert into Clients (Id, Name, Username) values (:id, :name, :username)
                 """,
-                {"id": user.id, "name": user.name},
+                {"id": user.id, "name": user.name, "username": user.username},
             )
         self.con.commit()
 
@@ -114,14 +114,13 @@ class DbConnector:
         self.cursor.execute(
             """
                 insert into Keys 
-                (Id, PublicKey, PrivateKey, Comment) 
+                (Id, OutlineKey, Comment) 
                 values 
-                (:id, :public_key, :private_key, :comment) 
+                (:id, :outline_key, :comment) 
             """,
             {
                 "id": user.id,
-                "public_key": user.public_key,
-                "private_key": user.private_key,
+                "outline_key": user.outline_key,
                 "comment": user.comment,
             },
         )

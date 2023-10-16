@@ -1,6 +1,7 @@
 aiogram==2.19
 aiohttp==3.8.1
 aiosignal==1.2.0
+annotated-types==0.6.0
 async-timeout==4.0.2
 attrs==21.4.0
 Babel==2.9.1
@@ -12,7 +13,13 @@ idna==3.3
 marshmallow==3.15.0
 multidict==6.0.2
 packaging==21.3
+pydantic==2.4.2
+pydantic-core==2.10.1
 pyparsing==3.0.7
 python-dotenv==0.20.0
 pytz==2022.1
+requests==2.31.0
+typing-extensions==4.8.0
+urllib3==2.0.6
+wgconfig==0.2.3
 yarl==1.7.2
